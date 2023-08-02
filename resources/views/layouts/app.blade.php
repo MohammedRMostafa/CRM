@@ -28,6 +28,11 @@
             <header class="bg-white shadow">
                 <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                     {{ $header }}
+                    <form class="col-3" action="{{ route('contacts.search') }}" method="post">
+                        @csrf
+                        <input name="search" type="search" class="form-control" placeholder="Search..."
+                            aria-label="Search">
+                    </form>
                 </div>
             </header>
         @endif

@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $contacts = Contact::where('name', 'LIKE', "%{$search}%")
+            ->orWhere('phone_number', 'LIKE', "%{$search}%")
+            ->get();
+
+        return view('contacts.dashboard', compact('contacts'));
+    }
+
     /**
      * Display a listing of the resource.
      */

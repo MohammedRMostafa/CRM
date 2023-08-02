@@ -33,3 +33,5 @@ Route::middleware('auth')->group(function () {
 require __DIR__ . '/auth.php';
 
 Route::resource('contacts', ContactController::class)->middleware('auth');
+
+Route::post('contacts.search', [ContactController::class, 'search'])->middleware('auth')->name('contacts.search');
